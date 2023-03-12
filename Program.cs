@@ -14,6 +14,25 @@ public class DoorMachine
     public static void Main(string[] args)
     {
         Console.WriteLine("Kelurahan " + KodePos.Kelurahan.Batununggal + " KodePos " + KodePos.getKodePos(KodePos.Kelurahan.Batununggal));
+        Console.WriteLine("Kode Perintah : KunciPintu, BukaPintu");
+        
+        state KondisiPintu = state.Terkunci;
+        string Perintah = "KunciPintu";
+        
+        while (Perintah == "KunciPintu" || Perintah == "BukaPintu")
+        {
+            Console.WriteLine(KondisiPintu);
+            Console.Write("Masukkan Perintah : ");
+            Perintah = Console.ReadLine();
+            if (Perintah == "BukaPintu")
+            {
+                KondisiPintu = state.Terbuka;
+            }
+            else if (Perintah == "KunciPintu")
+            {
+                KondisiPintu = state.Terkunci;
+            }
+        }
     } 
 
 }
